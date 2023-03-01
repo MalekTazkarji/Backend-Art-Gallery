@@ -1,29 +1,26 @@
-const express = require("express");
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import dotenv from "dotenv";
+import artists from "./src/routes/artistroutes.js";
+import hero from "./src/routes/hero.js";
+import users from "./src/routes/Users.js";
+import arts from "./src/routes/artroutes.js";
+import bodyParser from "body-parser";
+import aboutus from "./src/routes/AboutUsroutes.js";
+
 const app = express();
-const dotenv = require("dotenv")
-const mongoose = require("mongoose");
-const artists = require("./src/routes/artistroutes.js");
-const shows = require("./src/routes/showsroutes.js");
-const workshops = require("./src/routes/workshoproutes.js");
-const hero = require("./src/routes/hero");
-const users = require('./src/routes/Users');
-const arts=require("./src/routes/artroutes.js")
-const bodyParser = require('body-parser');
-const aboutus=require("./src/routes/AboutUsroutes")
 const PORT = 5000;
-const cors =require('cors');
+
 dotenv.config();
 
 app.use(cors());
 app.use(bodyParser.json({ limit: '200mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
-
 app.use('/public', express.static('./public'));
 
 
-app.use("/shows",shows);
 app.use("/artists", artists);
-app.use("/workshops", workshops);
 app.use("/", hero);
 app.use("/", users);
 app.use("/arts",arts);

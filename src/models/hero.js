@@ -1,13 +1,12 @@
-const { Schema, model } = require("mongoose");
+import mongoose from "mongoose";
 
-const heroSchema = new Schema({
+const heroSchema = new mongoose.Schema({
   
   heroimg: {
     type: 'string',
     required: true,
-    // unique: true,
   },
 });
 
-const hero = model('hero',heroSchema);
-module.exports = hero;
+const hero = mongoose.model('hero',heroSchema);
+export default hero;

@@ -1,4 +1,4 @@
-const Users = require("../models/Users");
+import Users from "../models/Users.js";
 
 class UsersController {
   getAll(req, res, next) {
@@ -53,4 +53,4 @@ class UsersController {
 }
 
 const usersController = new UsersController();
-module.exports = usersController;
+export default usersController;

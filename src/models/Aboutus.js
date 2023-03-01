@@ -1,6 +1,6 @@
-const { Schema, model } = require("mongoose");
+import mongoose from "mongoose";
 
-const AboutusSchema = new Schema({
+const AboutusSchema = new mongoose.Schema({
   aboutustext: {
     type: "string",
     required: true,
@@ -16,5 +16,5 @@ const AboutusSchema = new Schema({
   },
 });
 
-const aboutus = model("aboutus",AboutusSchema);
-module.exports = aboutus;
+const aboutus = mongoose.model("aboutus",AboutusSchema);
+export default aboutus

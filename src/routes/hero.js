@@ -1,11 +1,11 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const heroController = require("../controllers/herocontroller");
-const upload=require('../middleware/upload')
-router.get("/heroAll", heroController.getAll);
-router.get("/hero/img/:id", heroController.get);
-router.post("/hero/post",upload.single('heroimg'),heroController.post);
-router.put("/hero/update/:id",upload.single('image'),heroController.put);
-router.delete("/hero/delete/:id", heroController.delete);
+import herocontroller from "../controllers/herocontroller.js";
+import upload from "../middleware/upload.js";
 
-module.exports = router;
+router.get("/heroAll", herocontroller.getHero);
+router.post("/hero/post",upload.single('heroimg'),herocontroller.RegisterHero);
+router.put("/hero/update/:id",upload.single('image'),herocontroller.UpdateHero);
+router.delete("/hero/delete/:id", herocontroller.deleteHero);
+
+export default router;

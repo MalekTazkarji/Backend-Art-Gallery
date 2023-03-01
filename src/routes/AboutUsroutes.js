@@ -1,11 +1,9 @@
-const express=require('express');
+import express from "express" ;
 const router=express.Router();
-const About=require("../controllers/Aboutuscontroller");
+import About from '../controllers/Aboutuscontroller.js';
 
 
-router.get('/',About.getAll);
-router.post('/',About.post);
-router.put('/:id',About.put);
-router.delete('/:id',About.delete);
+router.get('/',About.getAboutUS);
+router.put('/:id',About.updateAboutUs);
 
-module.exports=router;
+export default router;

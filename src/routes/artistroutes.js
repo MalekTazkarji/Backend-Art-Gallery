@@ -1,12 +1,11 @@
-const express=require('express');
+import express from "express" ;
 const router=express.Router();
-const Artistscontroller=require("../controllers/artistscontrollers");
-const upload=require('../middleware/upload');
+import Artistscontroller from "../controllers/artistscontrollers.js";
+import upload from "../middleware/upload.js";
 
-router.get('/', Artistscontroller.getAll);
-router.get('/search/:name',Artistscontroller.getname);
-router.post('/',upload.single('image'),Artistscontroller.post);
-router.put('/:id',upload.single('image'),Artistscontroller.put);
-router.delete('/:id',Artistscontroller.delete);
+router.get('/', Artistscontroller.getArtists);
+router.post('/',upload.single('image'),Artistscontroller.registerArtists);
+router.put('/:id',upload.single('image'),Artistscontroller.updateArtists);
+router.delete('/:id',Artistscontroller.deleteArtists);
 
-module.exports=router;
+export default router;

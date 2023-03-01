@@ -1,6 +1,6 @@
-const { Schema, model } = require("mongoose");
+import mongoose from "mongoose";
 
-const ArtSchema = new Schema({
+const ArtSchema = new mongoose.Schema({
   arttitle: {
     type: "string",
     required: true,
@@ -21,8 +21,12 @@ const ArtSchema = new Schema({
     required: true,
     trim: true,
   },
-  artist: { type: Schema.Types.ObjectId, ref: "artists", required: true },
+  artist: {
+     type: mongoose.Schema.Types.ObjectId,
+     ref: "Artist",
+     required: true 
+            },
 });
 
-const art = model("art", ArtSchema);
-module.exports = art;
+const art = mongoose.model("art", ArtSchema);
+export default art;
